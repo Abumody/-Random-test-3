@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exam Results</title>
+
+<!-- Student Manager -->
+<script src="student-manager.js"></script>
+
+<style>
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#f1f2f6;
+  padding:30px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1{
+  color:#6c5ce7;
+  margin-bottom:10px;
+}
+
+.info{
+  margin-bottom:25px;
+  font-size:16px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:20px;
+}
+
+th, td{
+  border:1px solid #ddd;
+  padding:12px;
+  text-align:center;
+}
+
+th{
+  background:#6c5ce7;
+  color:white;
+}
+
+.total{
+  font-size:20px;
+  font-weight:bold;
+  text-align:right;
+  margin-top:15px;
+}
+
+.back-btn{
+  background:#0984e3;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.back-btn:hover{
+  background:#0866c6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>📊 Exam Results</h1>
+
+  <div class="info">
+    Student: <strong id="student"></strong><br>
+    Exam: <strong id="exam"></strong>
+  </div>
+
+  <table>
+    <tr>
+      <th>Section</th>
+      <th>Score</th>
+    </tr>
+
+    <!-- Listening -->
+    <tr><td>Listening 1</td><td id="l1">— / 10</td></tr>
+    <tr><td>Listening 2</td><td id="l2">— / 10</td></tr>
+    <tr><th>Listening Total</th><th id="lTotal">— / 20</th></tr>
+
+    <!-- Reading -->
+    <tr><td>Reading 1</td><td id="r1">— / 10</td></tr>
+    <tr><td>Reading 2</td><td id="r2">— / 10</td></tr>
+    <tr><th>Reading Total</th><th id="rTotal">— / 20</th></tr>
+
+    <!-- Writing -->
+    <tr><td>Writing 1</td><td id="w1">— / 10</td></tr>
+    <tr><td>Writing 2</td><td id="w2">— / 10</td></tr>
+    <tr><th>Writing Total</th><th id="wTotal">— / 20</th></tr>
+  </table>
+
+  <div class="total">
+    Final Score: <span id="final">— / 60</span>
+  </div>
+
+  <br>
+
+  <button class="back-btn" onclick="goBack()">⬅ Back to Exam</button>
+</div>
+
+<script>
+// حماية من الدخول بدون تسجيل
+const studentName = localStorage.getItem("studentName");
+if(!studentName){
+  window.location.href = "index.html";
+}
+
+// عرض اسم الطالب
+document.getElementById("student").innerText = studentName;
+
+// اسم صفحة الامتحان
+const examPage = localStorage.getItem("selectedExamPage") || "exam1.html";
+document.getElementById("exam").innerText =
+  examPage.replace(".html","").toUpperCase();
+
+// قراءة النتائج من student-manager
+const results = getExamResults();
+
+// Listening
+const l1 = results.listening1 ?? null;
+const l2 = results.listening2 ?? null;
+const lTotal = (l1 || 0) + (l2 || 0);
+
+// Reading
+const r1 = results.reading1 ?? null;
+const r2 = results.reading2 ?? null;
+const rTotal = (r1 || 0) + (r2 || 0);
+
+// Writing
+const w1 = results.writing1 ?? null;
+const w2 = results.writing2 ?? null;
+const wTotal = (w1 || 0) + (w2 || 0);
+
+// عرض الدرجات
+document.getElementById("l1").innerText = l1 !== null ? `${l1} / 10` : "— / 10";
+document.getElementById("l2").innerText = l2 !== null ? `${l2} / 10` : "— / 10";
+document.getElementById("lTotal").innerText = `${lTotal} / 20`;
+
+document.getElementById("r1").innerText = r1 !== null ? `${r1} / 10` : "— / 10";
+document.getElementById("r2").innerText = r2 !== null ? `${r2} / 10` : "— / 10";
+document.getElementById("rTotal").innerText = `${rTotal} / 20`;
+
+document.getElementById("w1").innerText = w1 !== null ? `${w1} / 10` : "— / 10";
+document.getElementById("w2").innerText = w2 !== null ? `${w2} / 10` : "— / 10";
+document.getElementById("wTotal").innerText = `${wTotal} / 20`;
+
+// المجموع النهائي
+const finalScore = lTotal + rTotal + wTotal;
+document.getElementById("final").innerText = `${finalScore} / 60`;
+
+// رجوع
+function goBack(){
+  window.location.href = examPage;
+}
+</script>
+
+</body>
+</html>

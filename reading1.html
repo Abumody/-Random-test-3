@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 1 - Grade 11 Elective</title>
+<script src="student-manager.js"></script>
+
+
+<style>
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#f4f6fb,#e8ecf5);
+    padding:30px;
+    color:#2c3e50;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.header{
+    border-bottom:3px solid #1e3799;
+    padding-bottom:15px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    margin:0;
+    color:#1e3799;
+}
+
+.marks{
+    float:right;
+    font-weight:bold;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
+}
+
+/* PASSAGE */
+.passage{
+    border:1px solid #ccc;
+    padding:20px;
+    border-radius:10px;
+    line-height:1.7;
+    background:#fafafa;
+    text-align:justify;
+}
+
+/* QUESTIONS */
+.questions{
+    padding:10px;
+}
+
+.instructions{
+    background:#f1f5ff;
+    padding:12px;
+    border-left:5px solid #1e3799;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.question{
+    margin-bottom:18px;
+}
+
+.question p{
+    font-weight:600;
+}
+
+input[type="text"]{
+    width:100%;
+    padding:8px;
+    font-size:14px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.tf-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+.tf-table th,.tf-table td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+
+.correct{
+    border:2px solid #27ae60 !important;
+    background:#eafaf1;
+}
+
+.wrong{
+    border:2px solid #c0392b !important;
+    background:#fdecea;
+}
+
+.submit-btn{
+    margin-top:25px;
+    width:100%;
+    background:#27ae60;
+    color:#fff;
+    border:none;
+    padding:14px;
+    font-size:17px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:25px;
+    padding:18px;
+    border-radius:10px;
+    background:#f4fdf7;
+    border:2px solid #27ae60;
+    font-size:18px;
+    text-align:center;
+}
+
+.action-buttons{
+    margin-top:15px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.action-buttons button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.back-btn{background:#0984e3;color:white;}
+.results-btn{background:#00b894;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>READING 1 (Items 1–10) <span class="marks">(10 marks)</span></h1>
+<p><strong>Read the following text. Then complete the tasks.</strong></p>
+</div>
+
+<div class="layout">
+
+<!-- TEXT RIGHT -->
+<div class="passage">
+<h3 style="text-align:center;">Traditional Medicine</h3>
+
+<p>
+Despite the remarkable progress in medical technology and drug industry, some people still do not like going to hospitals for treatment. In the past decade, there has been renewed attention and interest in the use of traditional medicine (TM) globally. Natural products and traditional medicine have been used for centuries in many parts of the world. Some traditional medicine, like Chinese medicine, Ayurveda in India, Kampo in Japan, and Korean medicine, have become well-established systems of healthcare. However, is traditional medicine a good thing?
+</p>
+
+<p>
+Supporters of traditional medicine would argue that its history has had a deep impact on human health for centuries. Traditional medicine originated in China around 3000 years ago and spread to Korea and Japan with the influence of Chinese culture starting in the 6th century. In China, Western medicine made its initial appearance in the 16th century, but it did not gain widespread popularity until the 19th century. Before that, Traditional Chinese Medicine (TCM) was the primary healthcare system. TCM has developed specific techniques for things like the right amount to use, how to prepare and process materials, and the best time to collect plant parts for medicine. It is interesting that TCM is becoming more similar to modern medicine. It accounts for around 40% of all health care delivered.
+</p>
+
+<p>
+Moreover, it has been claimed that traditional medicine doctors are not different from any medical school doctors. For example, in China, Korea, and Japan, TM doctors are defined by law, and their activities are controlled by the government. A five-year course in TM is a must in China’s universities while in Korea a six-year program offered by eleven private universities. In medical facilities like hospitals and clinics, Korea had the highest percentage of traditional medicine (TM) doctors at 15.26%, followed by China at 12.63%. In the case of Japan, the new law of medicine forces students to study TM after studying modern medicine first which makes it harder for students to go for another five years studying TM course. As a result, only 0.65% of doctors, who are also members of a non-governmental academic society called the Japan Society for Oriental Medicine, practiced Kampo in 2008.
+</p>
+
+<p>
+On the other hand, critics of traditional medicine claim that like any other medicine, TM also has some side effects. Herbal medicine can cause kidney failure and liver damage in some cases because they contain toxic chemicals. In 1999, a 34-year-old Australian woman was found dead in her house for drinking herbal tea to lose weight. After investigation, it was found that her herbal tea contained an excessive level of lead, which caused severe poisoning and led to death.
+</p>
+
+<p>
+Besides, many herbal products did not have any warning labels about ingredients, side effects, and drug interactions. Therefore, Australia has issued a new rule to prevent selling any herbal products without warning labels.
+</p>
+
+<p>
+So is traditional medicine better or not? Perhaps it all depends on how the individual manages the medicine itself. It is undoubtful that TM has many benefits but we cannot ignore the need for modern medicine and its theories.
+</p>
+</div>
+
+<!-- QUESTIONS LEFT -->
+<div class="questions">
+
+<div class="instructions">
+<strong>Task One:</strong> For each item, write a short answer (not more than FOUR WORDS).
+</div>
+
+<div class="question"><p>1. Which countries did commonly use traditional medicine in the past? (List two)</p><input type="text" id="q1"></div>
+<div class="question"><p>2. How was traditional medicine introduced in Japan?</p><input type="text" id="q2"></div>
+<div class="question"><p>3. When did Western medicine become widely accepted in China?</p><input type="text" id="q3"></div>
+<div class="question"><p>4. Why does Japan score the lowest percentage of traditional medicine doctors?</p><input type="text" id="q4"></div>
+<div class="question"><p>5. What are the side effects of traditional medicine? (List One)</p><input type="text" id="q5"></div>
+<div class="question"><p>6. What is the new law of Australia about marketing herbal products?</p><input type="text" id="q6"></div>
+
+<div class="instructions">
+<strong>Task Two:</strong> Shade in the bubble ○ to indicate whether the statement is True / False.
+</div>
+
+<table class="tf-table">
+<tr><th>Statement</th><th>True</th><th>False</th></tr>
+<tr><td>7. Traditional medicine covers about 40% of health care in China.</td><td><input type="radio" name="q7" value="True"></td><td><input type="radio" name="q7" value="False"></td></tr>
+<tr><td>8. Korea is the first country that has used traditional medicine.</td><td><input type="radio" name="q8" value="True"></td><td><input type="radio" name="q8" value="False"></td></tr>
+<tr><td>9. In 2008, 12.63% of doctors in Japan practiced Kampo.</td><td><input type="radio" name="q9" value="True"></td><td><input type="radio" name="q9" value="False"></td></tr>
+<tr><td>10. TM doctors do not need a bachelor’s degree in Japan.</td><td><input type="radio" name="q10" value="True"></td><td><input type="radio" name="q10" value="False"></td></tr>
+</table>
+
+<button class="submit-btn" onclick="finish()">Submit Reading 1</button>
+<div id="result"></div>
+
+</div>
+</div>
+</div>
+
+<script>
+/* ========= ANSWER KEY (Teacher Section) ========= */
+const answers = {
+  q1:"China and Japan",
+  q2:"Chinese influence",
+  q3:"19th century",
+  q4:"strict medical law",
+  q5:"kidney failure",
+  q6:"warning labels",
+  q7:"True",
+  q8:"False",
+  q9:"False",
+  q10:"False"
+};
+/* =============================================== */
+
+function n(t){ return t.toLowerCase().trim(); }
+
+function finish(){
+  let correct = 0;
+  let wrong = 0;
+
+  for(let q in answers){
+
+    // TEXT QUESTIONS
+    let textInput = document.getElementById(q);
+    if(textInput){
+      if(textInput.value.trim() === ""){
+        wrong++;
+        textInput.classList.add("wrong");
+      }else if(n(textInput.value) === n(answers[q])){
+        correct++;
+        textInput.classList.add("correct");
+      }else{
+        wrong++;
+        textInput.classList.add("wrong");
+      }
+      textInput.disabled = true;
+    }
+
+    // RADIO QUESTIONS
+    else{
+      let radios = document.querySelectorAll(`input[name="${q}"]`);
+      let answered = false;
+
+      radios.forEach(r=>{
+        if(r.checked){
+          answered = true;
+          if(r.value === answers[q]){
+            correct++;
+          }else{
+            wrong++;
+            r.parentElement.classList.add("wrong");
+          }
+        }
+        if(r.value === answers[q]){
+          r.parentElement.classList.add("correct");
+        }
+        r.disabled = true;
+      });
+
+      if(!answered){
+        wrong++;
+      }
+    }
+  }
+
+saveScore("reading1", correct);
+
+  document.getElementById("result").innerHTML = `
+  <div class="result-box">
+    ✔ Correct answers: ${correct}<br>
+    ✖ Wrong answers: ${wrong}<br>
+    🧮 Score: ${correct} / 10
+    <div class="action-buttons">
+      <button class="back-btn" onclick="location.href='exam1.html'">⬅ Back to exam1</button>
+      <button class="results-btn" onclick="location.href='results.html'">📊 View Results</button>
+    </div>
+  </div>`;
+}
+</script>
+
+</body>
+</html>

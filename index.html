@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grade 11 English Exam</title>
+
+<!-- Student Manager (مهم جدًا) -->
+<script src="student-manager.js"></script>
+
+<style>
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#e0e7ff);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+}
+
+.container{
+  background:#ffffff;
+  padding:50px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  text-align:center;
+  max-width:600px;
+  width:100%;
+}
+
+h1{
+  color:#1e3799;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:17px;
+  margin-bottom:25px;
+  color:#444;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:20px;
+}
+
+.start-btn{
+  background:#1e3799;
+  color:white;
+  border:none;
+  padding:16px 35px;
+  font-size:18px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+  width:100%;
+}
+
+.start-btn:hover{
+  background:#162f6a;
+}
+
+.error{
+  color:#c0392b;
+  font-weight:bold;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Grade 11 – English Exam</h1>
+  <p>Please enter your name to start the exam.</p>
+
+  <input type="text" id="studentName" placeholder="Enter your full name">
+
+  <!-- زر عادي (ليس submit) -->
+  <button class="start-btn" type="button" onclick="startExam()">
+    Start Exam
+  </button>
+
+  <div id="error"></div>
+</div>
+
+<script>
+function startExam(){
+  const name = document.getElementById("studentName").value.trim();
+
+  if(name === ""){
+    document.getElementById("error").innerHTML =
+      "<div class='error'>❌ Please enter your name.</div>";
+    return;
+  }
+
+  // حفظ اسم الطالب
+  localStorage.setItem("studentName", name);
+
+  // إنشاء/تحميل الطالب (من student-manager.js)
+  if(typeof loadStudent === "function"){
+    loadStudent(name);
+  }else{
+    console.error("student-manager.js not loaded");
+  }
+
+  // الانتقال لاختيار الاختبار
+  window.location.href = "exam-selection.html";
+}
+</script>
+
+</body>
+</html>

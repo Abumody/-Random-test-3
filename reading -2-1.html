@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 1 - Grade 11 Elective</title>
+<script src="student-manager.js"></script>
+
+
+<style>
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#f4f6fb,#e8ecf5);
+    padding:30px;
+    color:#2c3e50;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.header{
+    border-bottom:3px solid #1e3799;
+    padding-bottom:15px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    margin:0;
+    color:#1e3799;
+}
+
+.marks{
+    float:right;
+    font-weight:bold;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
+}
+
+/* PASSAGE */
+.passage{
+    border:1px solid #ccc;
+    padding:20px;
+    border-radius:10px;
+    line-height:1.7;
+    background:#fafafa;
+    text-align:justify;
+}
+
+/* QUESTIONS */
+.questions{
+    padding:10px;
+}
+
+.instructions{
+    background:#f1f5ff;
+    padding:12px;
+    border-left:5px solid #1e3799;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.question{
+    margin-bottom:18px;
+}
+
+.question p{
+    font-weight:600;
+}
+
+input[type="text"]{
+    width:100%;
+    padding:8px;
+    font-size:14px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.tf-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+.tf-table th,.tf-table td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+
+.correct{
+    border:2px solid #27ae60 !important;
+    background:#eafaf1;
+}
+
+.wrong{
+    border:2px solid #c0392b !important;
+    background:#fdecea;
+}
+
+.submit-btn{
+    margin-top:25px;
+    width:100%;
+    background:#27ae60;
+    color:#fff;
+    border:none;
+    padding:14px;
+    font-size:17px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:25px;
+    padding:18px;
+    border-radius:10px;
+    background:#f4fdf7;
+    border:2px solid #27ae60;
+    font-size:18px;
+    text-align:center;
+}
+
+.action-buttons{
+    margin-top:15px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.action-buttons button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.back-btn{background:#0984e3;color:white;}
+.results-btn{background:#00b894;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>READING 1 (Items 1–10) <span class="marks">(10 marks)</span></h1>
+<p><strong>Read the following text. Then complete the tasks.</strong></p>
+</div>
+
+<div class="layout">
+
+<!-- TEXT RIGHT -->
+<div class="passage">
+<h3 style="text-align:center;">Kilian Jornet and Mount Everest</h3>
+
+<p> When you picture mountain climbers scaling Mount Everest, what probably comes to mind are teams of climbers with Sherpa guides leading them to the summit, equipped with oxygen masks, supplies and tents. And in most cases you'd be right, as 97 per cent of climbers use oxygen to ascend to Everest's summit at 8,850 metres above sea level. The thin air at high altitudes makes most people breathless at 3,500 metres, and the vast majority of climbers use oxygen past 7,000 metres. A typical climbing group will have 8–15 people in it, with an almost equal number of guides, and they'll spend weeks to get to the top after reaching Base Camp. </p> <p> But ultra-distance and mountain runner Kilian Jornet Burgada ascended the mountain in May 2017 alone, without an oxygen mask or fixed ropes for climbing. Oh, and he did it in 26 hours. With food poisoning. And then, five days later, he did it again, this time in only 17 hours. </p> <p> Born in 1987, Kilian has been training for Everest his whole life. And that really does mean his whole life, as he grew up 2,000 metres above sea level in the Pyrenees in the ski resort of Lles de Cerdanya in Catalonia, north-eastern Spain. While other children his age were learning to walk, Kilian was on skis. At one and a half years old he did a five-hour hike with his mother, entirely under his own steam. He left his peers even further behind when he climbed his first mountain and competed in his first cross-country ski race at age three. By age seven, he had scaled a 4,000er and, at ten, he did a 42-day crossing of the Pyrenees. </p> <p> He was 13 when he says he started to take it 'seriously' and trained with the Ski Mountaineering Technical Centre (CTEMC) in Catalonia, entering competitions and working with a coach. At 18, he took over his own ski-mountaineering and trail-running training, with a schedule that only allows a couple of weeks of rest a year. He does as many as 1,140 hours of endurance training a year, plus strength training and technical workouts as well as specific training in the week before a race. For his record-breaking ascent and descent of the Matterhorn, he prepared by climbing the mountain ten times until he knew every detail of it, even including where the sun would be shining at every part of the day. </p> <p> Sleeping only seven hours a night, Kilian Jornet seems almost superhuman. His resting heartbeat is extremely low at 33 beats per minute, compared with the average man's 60 per minute or an athlete's 40 per minute. He breathes more efficiently than average people too, taking in more oxygen per breath, and he has a much faster recovery time after exercise as his body quickly breaks down lactic acid – the acid in muscles that causes pain after exercise. </p> <p> All this is thanks to his childhood in the mountains and to genetics, but it is his mental strength that sets him apart. He often sets himself challenges to see how long he can endure difficult conditions in order to truly understand what his body and mind can cope with. For example, he almost gave himself kidney failure after only drinking 3.5 litres of water on a 100km run in temperatures of around 40°C. </p> <p> It would take a book to list all the races and awards he's won and the mountains he's climbed. And even here, Kilian’s achievements exceed the average person as, somehow, he finds time to record his career on his blog and has written three books, <em>Run or Die</em>, <em>The Invisible Border</em> and <em>Summits of My Life</em>. </p>
+</div>
+
+<!-- QUESTIONS LEFT -->
+<div class="questions">
+
+<div class="instructions">
+<strong>Task One:</strong> For each item, write a short answer (not more than FOUR WORDS).
+</div>
+
+<<div class="question">
+  <p>1. What percentage of climbers use oxygen on Everest?</p>
+  <input type="text" id="q1">
+</div>
+
+<div class="question">
+  <p>2. How long did Kilian take to climb Everest the second time?</p>
+  <input type="text" id="q2">
+</div>
+
+<div class="question">
+  <p>3. Where did Kilian grow up?</p>
+  <input type="text" id="q3">
+</div>
+
+<div class="question">
+  <p>4. At what age did Kilian do a five-hour hike?</p>
+  <input type="text" id="q4">
+</div>
+
+<div class="question">
+  <p>5. What is Kilian’s resting heartbeat rate?</p>
+  <input type="text" id="q5">
+</div>
+
+<div class="question">
+  <p>6. Name one book Kilian wrote.</p>
+  <input type="text" id="q6">
+</div>
+
+<div class="instructions">
+  <strong>Task Two:</strong> Shade in the bubble ○ to indicate whether the statement is True / False.
+</div>
+
+<table class="tf-table">
+  <tr><th>Statement</th><th>True</th><th>False</th></tr>
+  <tr>
+    <td>7. Kilian used oxygen masks and ropes to climb Everest.</td>
+    <td><input type="radio" name="q7" value="True"></td>
+    <td><input type="radio" name="q7" value="False"></td>
+  </tr>
+  <tr>
+    <td>8. Kilian started serious training at age 13.</td>
+    <td><input type="radio" name="q8" value="True"></td>
+    <td><input type="radio" name="q8" value="False"></td>
+  </tr>
+  <tr>
+    <td>9. His body breaks down lactic acid slowly.</td>
+    <td><input type="radio" name="q9" value="True"></td>
+    <td><input type="radio" name="q9" value="False"></td>
+  </tr>
+  <tr>
+    <td>10. Kilian climbed the Matterhorn ten times before his record attempt.</td>
+    <td><input type="radio" name="q10" value="True"></td>
+    <td><input type="radio" name="q10" value="False"></td>
+  </tr>
+</table>
+
+
+<button class="submit-btn" onclick="finish()">Submit Reading 1</button>
+<div id="result"></div>
+
+</div>
+</div>
+</div>
+
+<script>
+/* ========= ANSWER KEY (Teacher Section) ========= */
+const answers = {
+  q1: "97%",
+  q2: "17 hours",
+  q3: "Pyrenees, Catalonia",
+  q4: "One and a half",
+  q5: "33 beats per minute",
+  q6: ["Run or Die", "The Invisible Border", "Summits of My Life"], // أي واحدة من هذه صحيحة
+  q7: "False",
+  q8: "True",
+  q9: "False",
+  q10: "True"
+};
+/* =============================================== */
+
+function n(t){ return t.toLowerCase().trim(); }
+
+function finish(){
+  let correct = 0;
+  let wrong = 0;
+
+  for(let q in answers){
+
+    // TEXT QUESTIONS
+    let textInput = document.getElementById(q);
+    if(textInput){
+      if(textInput.value.trim() === ""){
+        wrong++;
+        textInput.classList.add("wrong");
+      }else if(n(textInput.value) === n(answers[q])){
+        correct++;
+        textInput.classList.add("correct");
+      }else{
+        wrong++;
+        textInput.classList.add("wrong");
+      }
+      textInput.disabled = true;
+    }
+
+    // RADIO QUESTIONS
+    else{
+      let radios = document.querySelectorAll(`input[name="${q}"]`);
+      let answered = false;
+
+      radios.forEach(r=>{
+        if(r.checked){
+          answered = true;
+          if(r.value === answers[q]){
+            correct++;
+          }else{
+            wrong++;
+            r.parentElement.classList.add("wrong");
+          }
+        }
+        if(r.value === answers[q]){
+          r.parentElement.classList.add("correct");
+        }
+        r.disabled = true;
+      });
+
+      if(!answered){
+        wrong++;
+      }
+    }
+  }
+
+saveScore("reading1", correct);
+
+  document.getElementById("result").innerHTML = `
+  <div class="result-box">
+    ✔ Correct answers: ${correct}<br>
+    ✖ Wrong answers: ${wrong}<br>
+    🧮 Score: ${correct} / 10
+    <div class="action-buttons">
+      <button class="back-btn" onclick="location.href='exam 2.html'">⬅ Back to exam 2</button>
+      <button class="results-btn" onclick="location.href='results.html'">📊 View Results</button>
+    </div>
+  </div>`;
+}
+</script>
+
+</body>
+</html>

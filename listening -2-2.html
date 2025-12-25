@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening 2 - Grade 11 Elective</title>
+<script src="student-manager.js"></script>
+
+<style>
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#f4f6fb,#e8ecf5);
+    padding:30px;
+    color:#2c3e50;
+}
+.container{
+    max-width:950px;
+    margin:auto;
+    background:#fff;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+.header{
+    border-bottom:3px solid #1e3799;
+    padding-bottom:15px;
+    margin-bottom:25px;
+}
+.header h1{margin:0;color:#1e3799;}
+.marks{float:right;font-weight:bold;}
+
+.instructions{
+    background:#f1f5ff;
+    padding:15px;
+    border-left:5px solid #1e3799;
+    border-radius:8px;
+    margin-bottom:25px;
+}
+
+/* AUDIO */
+.audio-box{text-align:center;margin-bottom:30px;}
+.audio-box button{
+    background:#1e3799;
+    color:white;
+    border:none;
+    padding:12px 26px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+.time{margin-top:8px;font-size:14px;}
+.progress-container{
+    width:100%;height:8px;background:#ddd;border-radius:4px;
+    margin-top:10px;overflow:hidden;
+}
+.progress-bar{height:100%;width:0%;background:#1e3799;}
+
+.question{margin-bottom:18px;}
+.question p{font-weight:600;}
+
+input[type="text"]{
+    width:100%;
+    padding:10px;
+    font-size:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.correct{border:2px solid #27ae60;background:#eafaf1;}
+.wrong{border:2px solid #c0392b;background:#fdecea;}
+
+.submit-btn{
+    margin-top:30px;width:100%;
+    background:#27ae60;color:white;border:none;
+    padding:16px;font-size:18px;border-radius:10px;cursor:pointer;
+}
+
+.result-box{
+    margin-top:25px;padding:18px;border-radius:10px;
+    background:#f4fdf7;border:2px solid #27ae60;
+    font-size:18px;text-align:center;
+}
+
+.action-buttons{
+    margin-top:20px;display:flex;gap:15px;justify-content:center;
+}
+.action-buttons button{
+    padding:15px 30px;border:none;border-radius:10px;
+    font-size:17px;font-weight:600;cursor:pointer;min-width:200px;
+}
+.back-btn{background:#0984e3;color:white;}
+.results-btn{background:#00b894;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>LISTENING 2 (Items 11–20) <span class="marks">(10 marks)</span></h1>
+<p><strong>You will hear a phone conversation.</strong></p>
+</div>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio id="audio" src="Audio/A_phone_call_from_a_customer.mp3"></audio>
+<button id="playBtn">Play</button>
+
+<div class="time">
+<span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+</div>
+
+<div class="progress-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+
+<!-- PART ONE -->
+<div class="instructions">
+<strong>Part One:</strong> Answer the questions.  
+<em>(Use words from the listening only)</em>
+</div>
+
+<div class="question"><p>11. Who is speaking at the beginning of the call?</p><input type="text" id="q11"></div>
+<div class="question"><p>12. Who is calling Junko?</p><input type="text" id="q12"></div>
+<div class="question"><p>13. What problem is Andrea having?</p><input type="text" id="q13"></div>
+<div class="question"><p>14. What are the usual payment terms?</p><input type="text" id="q14"></div>
+<div class="question"><p>15. How long does Andrea want the payment terms extended?</p><input type="text" id="q15"></div>
+
+<!-- PART TWO -->
+<div class="instructions">
+<strong>Part Two:</strong> Complete the sentences.  
+<em>(From the listening text)</em>
+</div>
+
+<div class="question"><p>16. Andrea says they are having __________ problems.</p><input type="text" id="q16"></div>
+<div class="question"><p>17. The new order is for an __________ customer.</p><input type="text" id="q17"></div>
+<div class="question"><p>18. Junko mentions company __________.</p><input type="text" id="q18"></div>
+<div class="question"><p>19. Andrea asks for an email __________.</p><input type="text" id="q19"></div>
+<div class="question"><p>20. Andrea will send the new order by __________.</p><input type="text" id="q20"></div>
+
+<button class="submit-btn" onclick="finish()">Submit Listening 2</button>
+<div id="result"></div>
+
+</div>
+
+<script>
+/* AUDIO */
+const audio=document.getElementById("audio");
+const playBtn=document.getElementById("playBtn");
+const bar=document.getElementById("progressBar");
+const cur=document.getElementById("currentTime");
+const tot=document.getElementById("totalTime");
+
+playBtn.onclick=()=>{
+ if(audio.paused){audio.play();playBtn.textContent="Pause";}
+ else{audio.pause();playBtn.textContent="Play";}
+};
+audio.onloadedmetadata=()=>tot.textContent=t(audio.duration);
+audio.ontimeupdate=()=>{
+ cur.textContent=t(audio.currentTime);
+ if(audio.duration) bar.style.width=(audio.currentTime/audio.duration*100)+"%";
+};
+audio.onended=()=>playBtn.textContent="Play";
+function t(s){let m=Math.floor(s/60),r=Math.floor(s%60);return m+":"+(r<10?"0"+r:r);}
+
+/* ANSWERS – FROM THE TEXT WORD FOR WORD */
+const answers={
+ q11:"Junko",
+ q12:"Andrea",
+ q13:"cash flow problems",
+ q14:"30 days",
+ q15:"60 days",
+ q16:"cash flow",
+ q17:"important",
+ q18:"regulations",
+ q19:"confirmation",
+ q20:"email"
+};
+
+function n(x){return x.toLowerCase().trim();}
+
+function finish(){
+ let c=0,w=0;
+ for(let q in answers){
+  let i=document.getElementById(q);
+  if(i.value.trim()===""){w++;i.classList.add("wrong");}
+  else if(n(i.value)===n(answers[q])){c++;i.classList.add("correct");}
+  else{w++;i.classList.add("wrong");}
+  i.disabled=true;
+ }
+ saveScore("listening2",c);
+ document.getElementById("result").innerHTML=`
+ <div class="result-box">
+ ✔ Correct answers: ${c}<br>
+ ✖ Wrong answers: ${w}<br>
+ 🧮 Score: ${c} / 10
+ <div class="action-buttons">
+  <button class="back-btn" onclick="location.href='exam2.html'">⬅ Back to Exam</button>
+  <button class="results-btn" onclick="location.href='results.html'">📊 View Results</button>
+ </div></div>`;
+}
+</script>
+
+</body>
+</html>

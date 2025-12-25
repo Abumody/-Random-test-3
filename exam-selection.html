@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Select Exam</title>
+
+<style>
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#e0e7ff);
+  padding:40px;
+  color:#2c3e50;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  text-align:center;
+}
+
+h1{
+  color:#1e3799;
+  margin-bottom:5px;
+}
+
+.welcome{
+  font-size:18px;
+  margin-bottom:30px;
+  color:#444;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.exam-card{
+  background:#f5f7ff;
+  padding:25px;
+  border-radius:14px;
+  border:2px solid transparent;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.exam-card:hover{
+  border-color:#1e3799;
+  background:#eef1ff;
+  transform:translateY(-5px);
+}
+
+.exam-card h3{
+  margin:0;
+  color:#1e3799;
+}
+
+.exam-card span{
+  display:block;
+  margin-top:8px;
+  font-size:14px;
+  color:#555;
+}
+
+.change-name{
+  margin-top:30px;
+}
+
+.change-name button{
+  background:#dfe6ff;
+  border:none;
+  padding:10px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.change-name button:hover{
+  background:#cdd8ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Select Your Exam</h1>
+  <div class="welcome" id="welcome"></div>
+
+  <div class="grid">
+
+    <div class="exam-card" onclick="goExam('Mid Term Test', 'exam1.html')">
+      <h3>📝 Mid Term Test</h3>
+      <span>Exam 1</span>
+    </div>
+
+    <div class="exam-card" onclick="goExam('Final Test', 'exam 2.html')">
+      <h3>📘 Final Test</h3>
+      <span>Exam 2</span>
+    </div>
+
+    <div class="exam-card" onclick="goExam('Practice Test 1', 'exam3.html')">
+      <h3>🧠 Practice Test 1</h3>
+      <span>Exam 3</span>
+    </div>
+
+    <div class="exam-card" onclick="goExam('Practice Test 2', 'exam4.html')">
+      <h3>🧠 Practice Test 2</h3>
+      <span>Exam 4</span>
+    </div>
+
+    <div class="exam-card" onclick="goExam('Mock Exam', 'exam5.html')">
+      <h3>🎯 Mock Exam</h3>
+      <span>Exam 5</span>
+    </div>
+
+  </div>
+
+  <div class="change-name">
+    <button onclick="changeName()">Change Student Name</button>
+  </div>
+</div>
+
+<script>
+// حماية من الدخول المباشر
+const studentName = localStorage.getItem("studentName");
+if(!studentName){
+  window.location.href = "index.html";
+}
+
+// عرض اسم الطالب
+document.getElementById("welcome").innerText =
+  `Welcome, ${studentName}`;
+
+// الانتقال للاختبار المختار
+function goExam(examName, examPage){
+  localStorage.setItem("selectedExam", examName);
+  localStorage.setItem("selectedExamPage", examPage);
+  window.location.href = examPage;
+}
+
+// تغيير اسم الطالب
+function changeName(){
+  localStorage.removeItem("studentName");
+  localStorage.removeItem("selectedExam");
+  localStorage.removeItem("selectedExamPage");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

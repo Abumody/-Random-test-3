@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exam 2 – Select Section</title>
+
+<style>
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#fdeff4; /* خلفية وردي فاتح */
+    padding:30px;
+}
+
+.header{
+    background:#e84393; /* وردي أساسي */
+    color:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:30px;
+}
+
+.header-buttons{
+    margin-top:10px;
+}
+
+.section-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#ffffff;
+    padding:25px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    background:#fff0f6; /* وردي فاتح عند المرور */
+}
+
+h3{
+    color:#2d3436;
+}
+
+.results-btn,
+.back-btn{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+/* زر النتائج */
+.results-btn{
+    background:#27ae60; /* أخضر ثابت */
+    color:white;
+}
+
+.results-btn:hover{
+    background:#1e8449;
+}
+
+/* زر الرجوع */
+.back-btn{
+    background:#d63384; /* وردي داكن */
+    color:white;
+    margin-right:10px;
+}
+
+.back-btn:hover{
+    background:#b02a6f;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Elective English Test – Grade 11</h2>
+
+    <p>
+        Student: <strong id="student"></strong> |
+    </p>
+
+    <div class="header-buttons">
+        <button class="back-btn" onclick="goBack()">
+            ⬅ Change Exam
+        </button>
+
+        <button class="results-btn" onclick="go('results.html')">
+            📊 View Results
+        </button>
+    </div>
+</div>
+
+<div class="section-grid">
+
+    <div class="card" onclick="go('listening -2-1.html')">
+        <h3>🎧 Listening 1</h3>
+        <p>Multiple Choice & True/False</p>
+    </div>
+
+    <div class="card" onclick="go('listening -2-2.html')">
+        <h3>🎧 Listening 2</h3>
+        <p>Short Answers</p>
+    </div>
+
+    <div class="card" onclick="go('reading -2-1.html')">
+        <h3>📖 Reading 1</h3>
+        <p>Short Answers & T/F</p>
+    </div>
+
+    <div class="card" onclick="go('reading -2-2.html')">
+        <h3>📖 Reading 2</h3>
+        <p>MCQs & Matching</p>
+    </div>
+
+    <div class="card" onclick="go('writing -2-1.html')">
+        <h3>✍️ Writing 1</h3>
+        <p>Report Writing</p>
+    </div>
+
+    <div class="card" onclick="go('writing -2-2.html')">
+        <h3>✍️ Writing 2</h3>
+        <p>Email / Letter</p>
+    </div>
+
+</div>
+
+<script>
+// عرض بيانات الطالب
+document.getElementById("student").innerText =
+    localStorage.getItem("studentName") || "—";
+
+// الانتقال بين الصفحات
+function go(page){
+    window.location.href = page;
+}
+
+// الرجوع لاختيار الاختبار
+function goBack(){
+    window.location.href = "exam-selection.html";
+}
+</script>
+
+</body>
+</html>

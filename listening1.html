@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening 1 - Grade 11 Elective</title>
+
+<script src="student-manager.js"></script>
+
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg,#f4f6fb,#e8ecf5);
+    padding:30px;
+    color:#2c3e50;
+}
+
+.container{
+    max-width:950px;
+    margin:auto;
+    background:#ffffff;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.header{
+    border-bottom:3px solid #1e3799;
+    padding-bottom:15px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    margin:0;
+    color:#1e3799;
+}
+
+.marks{
+    float:right;
+    font-weight:bold;
+}
+
+.instructions{
+    background:#f1f5ff;
+    padding:15px;
+    border-left:5px solid #1e3799;
+    border-radius:8px;
+    margin-bottom:25px;
+}
+
+.audio-box{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.audio-box button{
+    background:#1e3799;
+    color:white;
+    border:none;
+    padding:12px 26px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.audio-box button:hover{
+    background:#163172;
+}
+
+.time{
+    margin-top:8px;
+    font-size:14px;
+    color:#333;
+}
+
+.progress-container{
+    width:100%;
+    height:8px;
+    background:#ddd;
+    border-radius:4px;
+    margin-top:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#1e3799;
+}
+
+.question{margin-bottom:22px;}
+.question p{font-weight:600;}
+
+.options{
+    display:flex;
+    gap:40px;
+    margin-top:10px;
+    flex-wrap:wrap;
+}
+
+label{cursor:pointer;}
+
+.tf-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.tf-table th, .tf-table td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+
+.correct{color:#27ae60;font-weight:bold;}
+.wrong{color:#c0392b;font-weight:bold;}
+
+.submit-btn{
+    margin-top:30px;
+    width:100%;
+    background:#27ae60;
+    color:white;
+    border:none;
+    padding:16px;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:25px;
+    padding:18px;
+    border-radius:10px;
+    background:#f4fdf7;
+    border:2px solid #27ae60;
+    font-size:18px;
+    text-align:center;
+}
+
+.action-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.action-buttons button{
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    min-width:200px;
+}
+
+.back-btn{background:#0984e3;color:white;}
+.results-btn{background:#00b894;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>LISTENING 1 (Items 1–10) <span class="marks">(10 marks)</span></h1>
+<p><strong>You are going to listen to an interview with a climber named Ashima.</strong></p>
+</div>
+
+<div class="instructions">
+<strong>Task One:</strong> Listen, and shade in the bubble ○ next to the correct option.
+</div>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio id="audio" src="Audio/Chaos_Theory.mp3"></audio>
+<button id="playBtn">Play</button>
+
+<div class="time">
+<span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+
+<!-- Questions 1–6 -->
+<div class="question">
+<p>1. Asha Badlani works mainly in the field of __________ .</p>
+<div class="options">
+<label><input type="radio" name="q1" value="Physics"> Physics</label>
+<label><input type="radio" name="q1" value="Economic"> Economic</label>
+<label><input type="radio" name="q1" value="Envirpmental science"> Envirpmental science</label>
+</div>
+</div>
+
+<div class="question">
+<p>2. Her job involves __________.</p>
+<div class="options">
+<label><input type="radio" name="q2" value="Writing novels"> Writing novels</label>
+<label><input type="radio" name="q2" value="Forecasting financial trends"> Forecasting financial trends</label>
+<label><input type="radio" name="q2" value="Teaching mathematics"> Teaching mathematics</label>
+</div>
+</div>
+
+<div class="question">
+<p>3. Chaos theory was originally developed to explain __________.</p>
+<div class="options">
+<label><input type="radio" name="q3" value="Stock market crashes"> Stock market crashes</label>
+<label><input type="radio" name="q3" value="Movement of planets and environmental changes">  Movement of planets and environmental changes</label>
+<label><input type="radio" name="q3" value="Political systems"> Political systems</label>
+</div>
+</div>
+
+<div class="question">
+<p>4. Economists began to use chaos theory more widely in the __________.</p>
+<div class="options">
+<label><input type="radio" name="q4" value="1980s"> 1980s</label>
+<label><input type="radio" name="q4" value="1990s"> 1990s</label>
+<label><input type="radio" name="q4" value="2000s"> 2000s</label>
+</div>
+</div>
+
+<div class="question">
+<p>5. According to chaos theory, forecasting is __________.</p>
+<div class="options">
+<label><input type="radio" name="q5" value="Impossible"> Impossible </label>
+<label><input type="radio" name="q5" value="More challenging but possible"> More challenging but possible </label>
+<label><input type="radio" name="q5" value="Always accurate"> Always accurate</label>
+</div>
+</div>
+
+<div class="question">
+<p>6. Mandelbrot’s experiment focused on __________.</p>
+<div class="options">
+<label><input type="radio" name="q6" value="Weather conditions"> Weather conditions</label>
+<label><input type="radio" name="q6" value="Stock exchange prices"> Stock exchange prices</label>
+<label><input type="radio" name="q6" value="Agricultural production"> Agricultural production</label>
+</div>
+</div>
+
+<div class="instructions">
+<strong>Task Two:</strong> For each item, shade in the bubble ○ to indicate whether the statement is True / False.
+</div>
+
+<table class="tf-table">
+<tr>
+<th>Statements</th>
+<th>True</th>
+<th>False</th>
+</tr>
+
+<tr>
+<td>7. Chaos theory provides guaranteed models for forecasting.</td>
+<td><input type="radio" name="q7" value="True"></td>
+<td><input type="radio" name="q7" value="False"></td>
+</tr>
+
+<tr>
+<td>8. Economics and finance are considered linear systems according to chaos theory.</td>
+<td><input type="radio" name="q8" value="True"></td>
+<td><input type="radio" name="q8" value="False"></td>
+</tr>
+
+<tr>
+<td>In a linear system, outcomes follow a predictable chain from a → b → c.</td>
+<td><input type="radio" name="q9" value="True"></td>
+<td><input type="radio" name="q9" value="False"></td>
+</tr>
+
+<tr>
+<td>10. Asha believes that chaos theory teaches economists to accept uncertainty.</td>
+<td><input type="radio" name="q10" value="True"></td>
+<td><input type="radio" name="q10" value="False"></td>
+</tr>
+</table>
+
+<button class="submit-btn" onclick="finish()">Submit Listening 1</button>
+<div id="result"></div>
+
+</div>
+
+<script>
+/* ===== Audio Logic ===== */
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const progressBar = document.getElementById("progressBar");
+const currentTimeEl = document.getElementById("currentTime");
+const totalTimeEl = document.getElementById("totalTime");
+
+playBtn.onclick = function(){
+    if(audio.paused){
+        audio.play();
+        playBtn.textContent = "Pause";
+    }else{
+        audio.pause();
+        playBtn.textContent = "Play";
+    }
+};
+
+audio.addEventListener("loadedmetadata", ()=>{
+    totalTimeEl.textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener("timeupdate", ()=>{
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+    if(audio.duration){
+        progressBar.style.width =
+            (audio.currentTime / audio.duration * 100) + "%";
+    }
+});
+
+audio.addEventListener("ended", ()=>{
+    playBtn.textContent = "Play";
+});
+
+function formatTime(seconds){
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return m + ":" + (s < 10 ? "0" + s : s);
+}
+
+/* ===== ANSWER KEY ===== */
+const answers = {
+    q1: "Economic",
+    q2: "Forecasting financial trends",
+    q3: "Movement of planets and environmental changes",
+    q4: "1990s",
+    q5: "More challenging but possible",
+    q6: "Stock exchange prices",
+    q7: "False",
+    q8: "False",
+    q9: "True",
+    q10: "True"
+};
+
+function finish(){
+    let correct = 0;
+    let wrong = 0;
+
+    for(let q in answers){
+        let inputs = document.querySelectorAll(`input[name="${q}"]`);
+        let answered = false;
+
+        inputs.forEach(input=>{
+            let label = input.parentElement;
+
+            if(input.value === answers[q]){
+                label.classList.add("correct");
+            }
+
+            if(input.checked){
+                answered = true;
+                if(input.value === answers[q]){
+                    correct++;
+                }else{
+                    wrong++;
+                    label.classList.add("wrong");
+                }
+            }
+            input.disabled = true;
+        });
+
+        if(!answered){
+            wrong++;
+        }
+    }
+
+    saveScore("listening1", correct);
+
+    document.getElementById("result").innerHTML = `
+    <div class="result-box">
+        ✔ Correct answers: ${correct}<br>
+        ✖ Wrong answers: ${wrong}<br>
+        🧮 Score: ${correct} / 10
+        <div class="action-buttons">
+            <button class="back-btn" onclick="location.href='exam1.html'">⬅ Back to Sections</button>
+            <button class="results-btn" onclick="location.href='results.html'">📊 View Results</button>
+        </div>
+    </div>`;
+}
+</script>
+
+</body>
+</html>
